@@ -2,12 +2,223 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src http://*; child-src 'none';">
-    <title>Basic Template</title>
+    <title>Deep Time</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style type="text/css">
+        body {
+            background-color: black;
+        }
+
+        .offset {
+            margin-top: 75px;
+            margin-bottom: 25px;
+            height: 150px;
+        }
+
+        .type {
+            position: relative;
+        }
+
+        .event a, .event a:visited, .event a:hover {
+            color: white;
+        }
+
+        div {
+            width: 100%;
+        }
+
+        #timer {
+            height: 125px;
+            position: fixed;
+            z-index: 9998;
+            background: black;
+            left: 0;
+            right: 0;
+            top: -20px;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        #clock {
+            font-size: 3em;
+            border-bottom: 1px dashed lightblue;
+        }
+
+        .event {
+            color: white;
+            padding-top: 200px;
+            margin-top: -200px;
+            -webkit-background-clip: content-box;
+            -moz-background-clip: padding;
+            background-clip: content-box;
+            position: absolute;
+            text-align: center;
+            z-index: 0;
+        }
+
+        #events {
+            margin-top: 200px;
+            position: relative;
+            height: 9001000px; /* 1px = 500 years
+            height: 33554400px max css height allowed */
+            font-size: 1.5em;
+            z-index: 0;
+        }
+
+        #note {
+            z-index: 9999;
+        }
+
+        #note div.modal-content {
+            color: black;
+            font-size: 1.05em;
+        }
+
+        #now {
+            top: 0;
+        }
+
+        #ce {
+            top: 4px;
+        }
+
+        #civilization {
+            top: 24px;
+        }
+
+        #humans {
+            top: 630px;
+        }
+
+        #dino {
+            top: 132000px;
+        }
+
+        #dino-start {
+            top: 474000px
+        }
+
+        #permian {
+            top: 504000px
+        }
+
+        #land-based {
+            top: 840000px
+        }
+
+        #multi-celled {
+            top: 6500000px
+        }
+
+        #photo {
+            top: 7000000px
+        }
+
+        #earth {
+            top: 9000000px;
+        }
+
+        text {
+            fill: white;
+        }
+
+        line, path {
+            stroke: white;
+        }
+    </style>
 </head>
 <body>
-
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Deep Time</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#dino">Dinos End</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#dino-start">Dinos</a>
+                    </li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row type">
+            <div class="text-center col-md-12 offset" id="timer">
+                <p id="legend">1px = 500 years</p>
+                <div class="text-center" id="clock">
+                    <span id="date">0</span> years ago (<span id="pct">0</span>%)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <!--  <div id="timeline" class="col-md-3"></div>-->
+            <div id="events" class="col-md-12">
+                <div id="now" class="event"></div>
+                <div id="ce" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Common_Era">Common Era Begins - 2,018 years ago</a>
+                </div>
+                <div id="civilization" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Neolithic">Rise of City States - ~12,000 years ago</a>
+                </div>
+                <div id="humans" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Human">Humans Come on the Scene - ~315,000 years ago</a></div>
+                <div id="dino" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Dinosaur#Extinction_of_major_groups">Dinosaurs go Extinct - ~66,000,000 years ago</a>
+                </div>
+                <div id="dino-start" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Dinosaur">Dinosaurs get Started - ~237,000,000 years ago</a>
+                </div>
+                <div id="permian" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Permian%E2%80%93Triassic_extinction_event">Permian Extinction, Near Extinction of all Life - ~252,000,000 years ago</a>
+                </div>
+                <div id="land-based" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Silurian#Flora_and_fauna">Life Makes its way Onto Land - ~420,000,000 years ago</a>
+                </div>
+                <div id="multi-celled" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Multicellular_organism#Occurrence">Multi-cellar Life - ~3,250,000,000 years ago</a>
+                </div>
+                <div id="photo" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Geological_history_of_oxygen">Photosynthesis gets Going - ~3,500,000,000 years ago</a>
+                </div>
+                <div id="earth" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Age_of_the_Earth">Earth forms - ~4,500,000,000 years ago</a>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="note" tabindex="-1" role="dialog" aria-labelledby="note-title" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-center" id="note-title">DeepTime - Introduction</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>I was recently reading Peter Brannen's excellent piece
+                            <a target="_blank" href="https://www.nytimes.com/2018/01/27/opinion/rambling-through-time.html">Rambling through Time</a>
+                            on how poorly people perceive how old the earth really is.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
