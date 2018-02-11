@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Deep Time</title>
+    <meta name="description" content="A scrolling, pixel based visualization demonstrating the Earth's age" />
+    <meta name="keywords" content="deep time,visualization,earth history" />
+    <title>Deep Time- An Incredibly Long Scroll through Earth's History</title>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -12,25 +14,23 @@
         body {
             background-color: black;
         }
-
+        #legend {
+            margin-bottom: 0;
+        }
         .offset {
             margin-top: 75px;
             margin-bottom: 25px;
             height: 150px;
         }
-
         .type {
             position: relative;
         }
-
         .event a, .event a:visited, .event a:hover {
             color: white;
         }
-
         div {
             width: 100%;
         }
-
         #timer {
             height: 135px;
             position: fixed;
@@ -42,12 +42,10 @@
             font-size: 1.1em;
             background: black;
         }
-
         #clock {
             font-size: 3em;
-            border-bottom: 1px dashed lightblue;
+            border-bottom: 1.5px dashed lightgoldenrodyellow;
         }
-
         .event {
             color: white;
             padding-top: 200px;
@@ -59,7 +57,6 @@
             text-align: center;
             z-index: 0;
         }
-
         #events {
             margin-top: 200px;
             position: relative;
@@ -68,12 +65,13 @@
             font-size: 1.5em;
             z-index: 0;
         }
-
         .dropdown-menu {
             z-index: 999;
             min-width: 12.5rem;
         }
-
+        .dropdown-menu.mega {
+            min-width: 14rem;
+        }
         @media (min-width: 576px) {
             .mega {
                 min-width: 28rem;
@@ -83,76 +81,58 @@
                 border-right: 1px solid lightgray
             }
         }
-
         .modal-backdrop {
             z-index: 995;
         }
-
         #note div.modal-content {
             color: black;
             font-size: 1.05em;
         }
-
         #now {
             top: 0;
         }
-
         #ce {
             top: 4px;
         }
-
         #civilization {
             top: 24px;
         }
-
         #last-glacial {
             top: 53px
         }
-
         #humans {
             top: 630px;
         }
-
         #note-one {
             top: 725px;
         }
-
         #primates {
             top: 130000px;
         }
-
         #dino {
             top: 132000px;
         }
-
         #triassic {
             top: 402600px;
         }
-
         #dino-start {
             top: 474000px
         }
-
         #permian {
             top: 504000px
         }
-
         #devonian {
             top: 735000px
         }
-
         #land-based {
             top: 840000px
         }
-
         #ordovician {
             top: 887600px
         }
-
         #snowball {
             top: 4500000px
         }
-
         #multi-celled {
             top: 6500000px
         }
@@ -160,17 +140,25 @@
         #photo {
             top: 7000000px
         }
-
         #life {
             top: 8000000px;
         }
-
         #earth {
             top: 9000000px;
         }
-
         #note-last {
             top: 9000450px;
+        }
+        .btn-outline-success {
+            color: orange;
+            border-color: orange;
+        }
+        .btn-outline-success:not(:disabled):not(.disabled).active,
+        .btn-outline-success:not(:disabled):not(.disabled):active,
+        .show>.btn-outline-success.dropdown-toggle,
+        .btn-outline-success:hover {
+            background-color: orange;
+            border-color: orange;
         }
     </style>
 </head>
@@ -236,7 +224,7 @@
                         </div>
                     </li>
                 </ul>
-                <button id="#intro" class="btn btn-outline-success my-2 my-sm-0" type="button">Intro</button>
+                <button class="btn btn-outline-success my-2 my-sm-0 intro" type="button">Intro</button>
             </div>
         </nav>
     </header>
@@ -253,7 +241,7 @@
             <div id="events" class="col-md-12">
                 <div id="now" class="event"></div>
                 <div id="ce" class="event">
-                    <a target="_blank" href="https://en.wikipedia.org/wiki/Common_Era">Common Era Begins - 2,018 years ago</a>
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Common_Era">Common Era - ~2,000 years ago</a>
                 </div>
                 <div id="civilization" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Neolithic">Rise of City States - ~12,000 years ago</a>
@@ -316,25 +304,28 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title text-center" id="note-title">Deep Time - An Incredibly Long Scroll
-                        through Time</h5>
+                        through Earth's History</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <p>Reading Peter Brannen's excellent piece
-                            <a target="_blank" href="https://www.nytimes.com/2018/01/27/opinion/rambling-through-time.html">Rambling through Time</a>
-                            on how poorly people perceive how old the earth really is. The earth, from a human perspective is unimaginably ancient.
+                            <a target="_blank" href="https://www.nytimes.com/2018/01/27/opinion/rambling-through-time.html">Rambling through Time</a>,
+                             I was struck by how poorly people perceive how old the earth really is. The earth, from a human perspective is unimaginably ancient.
                             Dinosaurs have been gone for approximately 66 million years, a number so large that it's basically meaningless to a person.
+                            In fact, it's only in the last several hundred years that the antiquity of our planet was worked out by scientists, a concept known as
+                            <a target="_blank" href="https://en.wikipedia.org/wiki/Deep_time">deep time</a>.
                             Inspired by Josh Worth's wonderful visualization
                             <a target="_blank" href="http://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html">
-                                If the Moon Were Only 1 Pixel
-                            </a>, I thought it might be useful to try a pixel accurate view of the history of the earth. Now, you can scroll
+                                If the Moon Were Only 1 Pixel</a>,
+                            I thought it might be useful to try a pixel accurate view of the history of the Earth. Now, you can scroll
                             through the history of the Earth to get a flavor of just how old it is. In the visualization one pixel equals 500 years.
                             For reference one pixel roughly equals 0.26 millimeters or 0.016 inches, depending on your screen resolution.
                         </p>
-                        <p><em><strong>Note:</strong> Best viewed using &#8593; &#8595; buttons or touch scroll, depending on your device.
-                            If you find yourself growing impatient you can use the dropdown menus to jump to specific events.</em></p>
+                        <p><em><strong>Note:</strong> Best viewed using &#8593; &#8595; buttons or touch scrolling, depending on your device.
+                            Scrolling with a mouse moves through time so quickly that it's very difficult to see events.
+                            If you find yourself growing impatient you can use the drop-down menus to jump to specific events.</em></p>
                     </div>
                 </div>
             </div>

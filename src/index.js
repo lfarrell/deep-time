@@ -10,7 +10,7 @@ let run = debounce(() => {
     let width = window.innerWidth;
     let formatter = format(",d");
 
-    $('button').on('click touch', () => {
+    $('button.intro').on('click touch', () => {
         note.modal();
     });
 
