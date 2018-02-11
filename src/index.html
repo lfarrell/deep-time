@@ -71,6 +71,7 @@
 
         .dropdown-menu {
             z-index: 999;
+            min-width: 12.5rem;
         }
 
         .modal-backdrop {
@@ -104,6 +105,10 @@
 
         #note-one {
             top: 725px;
+        }
+
+        #primates {
+            top: 130000px;
         }
 
         #dino {
@@ -171,18 +176,48 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#dino">Dinos End</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#dino-start">Dinos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="all-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</a>
+                        <div class="dropdown-menu" aria-labelledby="all-list">
+                            <a class="dropdown-item" href="#ce">Common Era</a>
+                            <a class="dropdown-item" href="#civilization">City States</a>
+                            <a class="dropdown-item" href="#last-glacial">Last Glacial Maximum</a>
+                            <a class="dropdown-item" href="#humans">Modern Humans</a>
+
+                            <a class="dropdown-item" href="#primates">First Primates</a>
+                            <a class="dropdown-item" href="#dino">Dinosaurs go Extinct</a>
+                            <a class="dropdown-item" href="#triassic">Triassic Extinction</a>
+                            <a class="dropdown-item" href="#dino-start">First Dinosaurs</a>
+
+                            <a class="dropdown-item" href="#permian">Permian Extinct</a>
+                            <a class="dropdown-item" href="#devonian">Devonian Extinction</a>
+                            <a class="dropdown-item" href="#land-based">Land Based Life</a>
+
+                            <a class="dropdown-item" href="#ordovician">Ordovician Extinction</a>
+                            <a class="dropdown-item" href="#snowball">Snowball Earth</a>
+                            <a class="dropdown-item" href="#multi-celled">Multicellular Life</a>
+
+                            <a class="dropdown-item" href="#photo">Photosynthesis Begins</a>
+                            <a class="dropdown-item" href="#life">Earliest Life</a>
+                            <a class="dropdown-item" href="#earth">Earth Forms</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="human-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Humans</a>
-                        <div class="dropdown-menu" aria-labelledby="humans">
+                        <div class="dropdown-menu" aria-labelledby="human-list">
                             <a class="dropdown-item" href="#ce">Common Era</a>
                             <a class="dropdown-item" href="#civilization">City States</a>
                             <a class="dropdown-item" href="#humans">Modern Humans</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="extinction-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mass Extinctions</a>
+                        <div class="dropdown-menu" aria-labelledby="extinction-list">
+                            <a class="dropdown-item" href="#dino">Dinosaurs go Extinct</a>
+                            <a class="dropdown-item" href="#triassic">Triassic Extinction</a>
+                            <a class="dropdown-item" href="#permian">Permian Extinct</a>
+                            <a class="dropdown-item" href="#devonian">Devonian Extinction</a>
+                            <a class="dropdown-item" href="#ordovician">Ordovician Extinction</a>
                         </div>
                     </li>
                 </ul>
@@ -216,6 +251,9 @@
                 <div id="note-one" class="event">
                     Humans on Earth are far into the future. It's still an unbelievably long way back to the dinosaurs.
                 </div>
+                <div id="primates" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Evolution_of_primates">Earliest Primates - ~65,000,000 years ago</a>
+                </div>
                 <div id="dino" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Dinosaur#Extinction_of_major_groups">Dinosaurs go Extinct - ~66,000,000 years ago</a>
                 </div>
@@ -241,7 +279,7 @@
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Huronian_glaciation">Snowball Earth - ~2,250,000,000 years ago</a>
                 </div>
                 <div id="multi-celled" class="event">
-                    <a target="_blank" href="https://en.wikipedia.org/wiki/Multicellular_organism#Occurrence">Multi-cellar Life - ~3,250,000,000 years ago</a>
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Multicellular_organism#Occurrence">Multicellular Life - ~3,250,000,000 years ago</a>
                 </div>
                 <div id="photo" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Geological_history_of_oxygen">Photosynthesis gets Going - ~3,500,000,000 years ago</a>
@@ -261,17 +299,26 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title text-center" id="note-title">DeepTime - Introduction</h3>
+                        <h5 class="modal-title text-center" id="note-title">Deep Time - An Incredibly Long Scroll
+                        through Time</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>I was recently reading Peter Brannen's excellent piece
+                        <p>Reading Peter Brannen's excellent piece
                             <a target="_blank" href="https://www.nytimes.com/2018/01/27/opinion/rambling-through-time.html">Rambling through Time</a>
-                            on how poorly people perceive how old the earth really is. Inspired by Josh Worth's
-                            <a target="_blank" href="http://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html"></a>
+                            on how poorly people perceive how old the earth really is. The earth, from a human perspective is unimaginably ancient.
+                            Dinosaurs have been gone for approximately 66 million years, a number so large that it's basically meaningless to a person.
+                            Inspired by Josh Worth's wonderful visualization
+                            <a target="_blank" href="http://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html">
+                                If the Moon Were Only 1 Pixel
+                            </a>, I thought it might be useful to try a pixel accurate view of the history of the earth. Now, you can scroll
+                            through the history of the Earth to get a flavor of just how old it is. In the visualization one pixel equals 500 years.
+                            For reference one pixel roughly equals 0.26 millimeters or 0.016 inches, depending on your screen resolution.
                         </p>
+                        <p><em><strong>Note:</strong> Best viewed using &#8593; &#8595; buttons or touch scroll, depending on your device.
+                            If you find yourself growing impatient you can use the dropdown menus to jump to specific events.</em></p>
                     </div>
                 </div>
             </div>
