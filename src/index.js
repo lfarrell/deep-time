@@ -3,10 +3,14 @@ import {round, debounce} from 'lodash';
 
 $('#note').modal();
 
-let run = debounce(function() {
+let run = debounce(() => {
     const EARTH_AGE = 4500000000;
     let width = window.innerWidth;
     let formatter = d3.format(",d");
+
+    $('button').on('click touch', () => {
+        $('#note').modal();
+    });
 
     $(window).on('scroll', (d) => {
         let value = (window.pageYOffset) * 500;
