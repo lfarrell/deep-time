@@ -1,7 +1,9 @@
 import * as d3 from 'd3';
 import {round, debounce} from 'lodash';
 
-$('#note').modal();
+let note = $('#note');
+
+note.modal();
 
 let run = debounce(() => {
     const EARTH_AGE = 4500000000;
@@ -9,7 +11,7 @@ let run = debounce(() => {
     let formatter = d3.format(",d");
 
     $('button').on('click touch', () => {
-        $('#note').modal();
+        note.modal();
     });
 
     $(window).on('scroll', (d) => {
@@ -22,7 +24,7 @@ let run = debounce(() => {
         let val = (value / EARTH_AGE) * 100;
         let rounded = round(val, 3) + '';
 
-        let test_value;
+        let test_value, test_type;
         if (rounded === undefined) {
             test_value = 0;
         } else {
@@ -30,14 +32,16 @@ let run = debounce(() => {
 
             if (num_count.length > 1) {
                 test_value = num_count[1].length;
+                test_type = 'decimal';
             } else {
                 test_value = num_count[0].length;
+                test_type = 'main';
             }
         }
 
-        if (test_value === 2) {
+        if (test_value === 2 && test_type === 'decimal') {
             rounded = rounded + '0';
-        } else if (test_value === 1) {
+        } else if (test_value === 1 && test_type === 'decimal') {
             rounded = rounded + '00';
         }
 
