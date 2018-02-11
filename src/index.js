@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import {format} from 'd3-format';
 import {round, debounce} from 'lodash';
 
 let note = $('#note');
@@ -8,7 +8,7 @@ note.modal();
 let run = debounce(() => {
     const EARTH_AGE = 4500000000;
     let width = window.innerWidth;
-    let formatter = d3.format(",d");
+    let formatter = format(",d");
 
     $('button').on('click touch', () => {
         note.modal();
