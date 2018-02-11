@@ -32,15 +32,15 @@
         }
 
         #timer {
-            height: 125px;
+            height: 135px;
             position: fixed;
-            z-index: 9998;
-            background: black;
+            z-index: 998;
             left: 0;
             right: 0;
             top: -20px;
             color: white;
             font-size: 1.1em;
+            background: black;
         }
 
         #clock {
@@ -63,14 +63,18 @@
         #events {
             margin-top: 200px;
             position: relative;
-            height: 9001000px; /* 1px = 500 years
+            height: 9000500px; /* 1px = 500 years
             height: 33554400px max css height allowed */
             font-size: 1.5em;
             z-index: 0;
         }
 
-        #note {
-            z-index: 9999;
+        .dropdown-menu {
+            z-index: 999;
+        }
+
+        .modal-backdrop {
+            z-index: 995;
         }
 
         #note div.modal-content {
@@ -90,12 +94,24 @@
             top: 24px;
         }
 
+        #last-glacial {
+            top: 53px
+        }
+
         #humans {
             top: 630px;
         }
 
+        #note-one {
+            top: 725px;
+        }
+
         #dino {
             top: 132000px;
+        }
+
+        #triassic {
+            top: 402600px;
         }
 
         #dino-start {
@@ -106,8 +122,20 @@
             top: 504000px
         }
 
+        #devonian {
+            top: 735000px
+        }
+
         #land-based {
             top: 840000px
+        }
+
+        #ordovician {
+            top: 887600px
+        }
+
+        #snowball {
+            top: 4500000px
         }
 
         #multi-celled {
@@ -118,16 +146,16 @@
             top: 7000000px
         }
 
+        #life {
+            top: 8000000px;
+        }
+
         #earth {
             top: 9000000px;
         }
 
-        text {
-            fill: white;
-        }
-
-        line, path {
-            stroke: white;
+        #note-last {
+            top: 9000450px;
         }
     </style>
 </head>
@@ -149,11 +177,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#dino-start">Dinos</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="human-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Humans</a>
+                        <div class="dropdown-menu" aria-labelledby="humans">
+                            <a class="dropdown-item" href="#ce">Common Era</a>
+                            <a class="dropdown-item" href="#civilization">City States</a>
+                            <a class="dropdown-item" href="#humans">Modern Humans</a>
+                        </div>
+                    </li>
                 </ul>
-                <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
         </nav>
     </header>
@@ -167,7 +199,6 @@
             </div>
         </div>
         <div class="row">
-          <!--  <div id="timeline" class="col-md-3"></div>-->
             <div id="events" class="col-md-12">
                 <div id="now" class="event"></div>
                 <div id="ce" class="event">
@@ -176,10 +207,20 @@
                 <div id="civilization" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Neolithic">Rise of City States - ~12,000 years ago</a>
                 </div>
+                <div id="last-glacial" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Neolithic">Last Glacial Maximum - ~26,000 years ago</a>
+                </div>
                 <div id="humans" class="event">
-                    <a target="_blank" href="https://en.wikipedia.org/wiki/Human">Humans Come on the Scene - ~315,000 years ago</a></div>
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Human">Humans Come on the Scene - ~315,000 years ago</a>
+                </div>
+                <div id="note-one" class="event">
+                    Humans on Earth are far into the future. It's still an unbelievably long way back to the dinosaurs.
+                </div>
                 <div id="dino" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Dinosaur#Extinction_of_major_groups">Dinosaurs go Extinct - ~66,000,000 years ago</a>
+                </div>
+                <div id="triassic" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Permian%E2%80%93Triassic_extinction_event">Triassic Mass Extinction - ~201,300,000 years ago</a>
                 </div>
                 <div id="dino-start" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Dinosaur">Dinosaurs get Started - ~237,000,000 years ago</a>
@@ -187,8 +228,17 @@
                 <div id="permian" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Permian%E2%80%93Triassic_extinction_event">Permian Extinction, Near Extinction of all Life - ~252,000,000 years ago</a>
                 </div>
+                <div id="devonian" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Late_Devonian_extinction">Devonian Mass Extinction - ~367,500,000 years ago</a>
+                </div>
                 <div id="land-based" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Silurian#Flora_and_fauna">Life Makes its way Onto Land - ~420,000,000 years ago</a>
+                </div>
+                <div id="ordovician" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Ordovician%E2%80%93Silurian_extinction_events#Impact">Ordovician Mass Extinction - ~443,800,000 years ago</a>
+                </div>
+                <div id="snowball" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Huronian_glaciation">Snowball Earth - ~2,250,000,000 years ago</a>
                 </div>
                 <div id="multi-celled" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Multicellular_organism#Occurrence">Multi-cellar Life - ~3,250,000,000 years ago</a>
@@ -196,8 +246,14 @@
                 <div id="photo" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Geological_history_of_oxygen">Photosynthesis gets Going - ~3,500,000,000 years ago</a>
                 </div>
+                <div id="life" class="event">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Earliest_known_life_forms">Earliest Life - ~4,000,000,000 years ago</a>
+                </div>
                 <div id="earth" class="event">
-                    <a target="_blank" href="https://en.wikipedia.org/wiki/Age_of_the_Earth">Earth forms - ~4,500,000,000 years ago</a>
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Age_of_the_Earth">Earth Forms - ~4,500,000,000 years ago</a>
+                </div>
+                <div id="note-last" class="event">
+                    Whew, you made it! Now, roughly do that 4 more times to reach the start of the Big Bang.
                 </div>
             </div>
         </div>
@@ -213,7 +269,8 @@
                     <div class="modal-body">
                         <p>I was recently reading Peter Brannen's excellent piece
                             <a target="_blank" href="https://www.nytimes.com/2018/01/27/opinion/rambling-through-time.html">Rambling through Time</a>
-                            on how poorly people perceive how old the earth really is.
+                            on how poorly people perceive how old the earth really is. Inspired by Josh Worth's
+                            <a target="_blank" href="http://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html"></a>
                         </p>
                     </div>
                 </div>

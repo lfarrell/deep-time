@@ -16,9 +16,29 @@ let run = debounce(function() {
         }
 
         let val = (value / EARTH_AGE) * 100;
+        let rounded = round(val, 3) + '';
+
+        let test_value;
+        if (rounded === undefined) {
+            test_value = 0;
+        } else {
+            let num_count = rounded.split('.');
+
+            if (num_count.length > 1) {
+                test_value = num_count[1].length;
+            } else {
+                test_value = num_count[0].length;
+            }
+        }
+
+        if (test_value === 2) {
+            rounded = rounded + '0';
+        } else if (test_value === 1) {
+            rounded = rounded + '00';
+        }
 
         $('#date').text(formatter(value));
-        $('#pct').text(round(val, 3));
+        $('#pct').text(rounded);
     });
 
     let clock = $('#clock');
