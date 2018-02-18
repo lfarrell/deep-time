@@ -122,7 +122,7 @@
             top: 504000px
         }
         #devonian {
-            top: 735000px
+            top: 748000px
         }
         #land-based {
             top: 840000px
@@ -224,7 +224,7 @@
                         </div>
                     </li>
                 </ul>
-                <button class="btn btn-outline-success my-2 my-sm-0 intro" type="button">Intro</button>
+                <button class="btn btn-outline-success my-2 my-sm-0 intro" aria-controls="note" type="button">Intro</button>
             </div>
         </nav>
     </header>
@@ -268,10 +268,10 @@
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Dinosaur">Dinosaurs get Started - ~237,000,000 years ago</a>
                 </div>
                 <div id="permian" class="event">
-                    <a target="_blank" href="https://en.wikipedia.org/wiki/Permian%E2%80%93Triassic_extinction_event">Permian Extinction, Near Extinction of all Life - ~252,000,000 years ago</a>
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Permian%E2%80%93Triassic_extinction_event">Permian Extinction, Near Extinction of All Life - ~252,000,000 years ago</a>
                 </div>
                 <div id="devonian" class="event">
-                    <a target="_blank" href="https://en.wikipedia.org/wiki/Late_Devonian_extinction">Devonian Mass Extinction - ~367,500,000 years ago</a>
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Late_Devonian_extinction">Devonian Mass Extinction - ~374,000,000 years ago</a>
                 </div>
                 <div id="land-based" class="event">
                     <a target="_blank" href="https://en.wikipedia.org/wiki/Silurian#Flora_and_fauna">Life Makes its way Onto Land - ~420,000,000 years ago</a>
@@ -299,47 +299,37 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="note" tabindex="-1" role="dialog" aria-labelledby="note-title" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center" id="note-title">Deep Time - An Incredibly Long Scroll
+    </div>
+    <div class="modal fade" id="note" tabindex="-1" role="dialog" aria-labelledby="note-title" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="note-title">Deep Time - An Incredibly Long Scroll
                         through Earth's History</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Reading Peter Brannen's excellent piece
-                            <a target="_blank" href="https://www.nytimes.com/2018/01/27/opinion/rambling-through-time.html">Rambling through Time</a>,
-                             I was struck by how poorly people perceive how old the earth really is. The earth, from a human perspective is unimaginably ancient.
-                            Dinosaurs have been gone for approximately 66 million years, a number so large that it's basically meaningless to a person.
-                            In fact, it's only in the last several hundred years that the antiquity of our planet was worked out by scientists, a concept known as
-                            <a target="_blank" href="https://en.wikipedia.org/wiki/Deep_time">deep time</a>.
-                            Inspired by Josh Worth's wonderful visualization
-                            <a target="_blank" href="http://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html">
-                                If the Moon Were Only 1 Pixel</a>,
-                            I thought it might be useful to try a pixel accurate view of the history of the Earth. Now, you can scroll
-                            through the history of the Earth to get a flavor of just how old it is. In the visualization one pixel equals 500 years.
-                            For reference one pixel roughly equals 0.26 millimeters or 0.016 inches, depending on your screen resolution.
-                        </p>
-                        <p><em><strong>Note:</strong> Best viewed using &#8593; &#8595; buttons or touch scrolling, depending on your device.
-                            Scrolling with a mouse moves through time so quickly that it's very difficult to see events.
-                            If you find yourself growing impatient you can use the drop-down menus to jump to specific events.</em></p>
-                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Reading Peter Brannen's excellent piece
+                        <a target="_blank" href="https://www.nytimes.com/2018/01/27/opinion/rambling-through-time.html">Rambling through Time</a>,
+                        I was struck by how poorly people perceive how old the earth really is. The earth, from a human perspective is unimaginably ancient.
+                        Dinosaurs have been gone for approximately 66 million years, a number so large that it's basically meaningless to a person.
+                        In fact, it's only in the last several hundred years that the antiquity of our planet was worked out by scientists, a concept known as
+                        <a target="_blank" href="https://en.wikipedia.org/wiki/Deep_time">deep time</a>.
+                        Inspired by Josh Worth's wonderful visualization
+                        <a target="_blank" href="http://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html">
+                            If the Moon Were Only 1 Pixel</a>,
+                        I thought it might be useful to try a pixel accurate view of the history of the Earth. Now, you can scroll
+                        through the history of the Earth to get a flavor of just how old it is. In the visualization one pixel equals 500 years.
+                        For reference one pixel roughly equals 0.26 millimeters or 0.016 inches, depending on your screen resolution.
+                    </p>
+                    <p><em><strong>Note:</strong> Best viewed using &#8593; &#8595; buttons or touch scrolling, depending on your device.
+                        Scrolling with a mouse moves through time so quickly that it's very difficult to see events.
+                        If you find yourself growing impatient you can use the drop-down menus to jump to specific events.</em></p>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-47256145-1']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
 </body>
 </html>
